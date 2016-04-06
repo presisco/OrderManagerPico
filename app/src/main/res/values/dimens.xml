@@ -6,4 +6,8 @@
     <dimen name="size_text_medium">16sp</dimen>
     <dimen name="size_text_small">12sp</dimen>
     <dimen name="size_text_large">20sp</dimen>
+
+    <dimen name="padding_login_input_area">60dp</dimen>
+    <dimen name="padding_login_button_bottom">60dp</dimen>
+    <dimen name="width_login_button">120dp</dimen>
 </resources>

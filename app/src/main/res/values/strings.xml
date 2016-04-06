@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">OrderManagerPico</string>
+    <string name="text_describe_login_name">登录名</string>
+    <string name="text_describe_login_password">密码</string>
     <string name="text_describe_tonnage">吨位</string>
     <string name="text_describe_product_name">产品名称</string>
     <string name="text_describe_client_name">客户名称</string>
@@ -16,4 +18,9 @@
     <string name="text_button_confirm_receipt">确认收货</string>
     <string name="text_button_confirm_payment">确认付款</string>
     <string name="text_button_finish_order">订单完成</string>
+    <string name="text_button_login">登录</string>
+    <string name="text_message_empty_input">一项或多项为空</string>
+    <string name="text_message_wrong_username">用户名错误</string>
+    <string name="text_message_wrong_pwd">密码错误</string>
+    <string name="text_message_unknown_error">未知错误</string>
 </resources>
