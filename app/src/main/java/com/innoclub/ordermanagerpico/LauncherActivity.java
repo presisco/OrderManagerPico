@@ -33,6 +33,9 @@ public class LauncherActivity extends AppCompatActivity {
         finish();
     }
 
+    /**
+     * 等待一段时间后根据登录状态进行操作
+     */
     private class WasteofTime extends AsyncTask<Void,Void,Void>{
         @Override
         protected Void doInBackground(Void... params) {
