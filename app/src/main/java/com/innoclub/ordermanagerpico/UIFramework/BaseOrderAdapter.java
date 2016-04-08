@@ -1,4 +1,4 @@
-package com.innoclub.ordermanagerpico;
+package com.innoclub.ordermanagerpico.UIFramework;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -11,22 +11,9 @@ public class BaseOrderAdapter extends RecyclerView.Adapter<BaseOrderAdapter.Base
     private int mFooterResId;
     private int mHeaderResId;
 
-    public interface ActionHub{
-        public void onItemClicked(int position);
-        public void onItemLongClicked(int position);
-        public void onHeaderSwipeRefresh();
-        public void onFooterLoadMore();
-    }
-
-    public class BaseViewHolder extends RecyclerView.ViewHolder{
-        public BaseViewHolder(View itemView) {
-            super(itemView);
-        }
-    }
-
-    public void setFooterAndHeader(int footerId,int headerId){
-        mFooterResId=footerId;
-        mHeaderResId=headerId;
+    public void setFooterAndHeader(int footerId, int headerId) {
+        mFooterResId = footerId;
+        mHeaderResId = headerId;
     }
 
     @Override
@@ -47,5 +34,21 @@ public class BaseOrderAdapter extends RecyclerView.Adapter<BaseOrderAdapter.Base
     @Override
     public int getItemViewType(int position) {
         return super.getItemViewType(position);
+    }
+
+    public interface ActionHub {
+        public void onItemClicked(int position);
+
+        public void onItemLongClicked(int position);
+
+        public void onHeaderSwipeRefresh();
+
+        public void onFooterLoadMore();
+    }
+
+    public class BaseViewHolder extends RecyclerView.ViewHolder {
+        public BaseViewHolder(View itemView) {
+            super(itemView);
+        }
     }
 }

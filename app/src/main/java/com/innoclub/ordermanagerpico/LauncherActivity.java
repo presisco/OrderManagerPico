@@ -6,6 +6,8 @@ import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.innoclub.ordermanagerpico.Utils.ConstParams;
+
 /**
  * Created by presisco on 2016/4/6.
  */
