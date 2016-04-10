@@ -17,6 +17,8 @@ import com.innoclub.ordermanagerpico.Utils.ConstParams;
  */
 
 public class LauncherActivity extends AppCompatActivity {
+    private static final boolean SKIP_LOGIN = true;
+
     //获取是否登陆过
     boolean loggedIn;
 
@@ -25,9 +27,12 @@ public class LauncherActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launcher);
 
-        loggedIn=getSharedPreferences(ConstParams.MAIN_SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE)
-                    .getBoolean(ConstParams.MAIN_SHARED_PREFERENCE_KEY_LOGGEDIN,false);
-
+        if (SKIP_LOGIN) {
+            loggedIn = true;
+        } else {
+            loggedIn = getSharedPreferences(ConstParams.MAIN_SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE)
+                    .getBoolean(ConstParams.MAIN_SHARED_PREFERENCE_KEY_LOGGEDIN, false);
+        }
         new WasteofTime().execute();
     }
 

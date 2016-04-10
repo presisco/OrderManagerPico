@@ -12,4 +12,5 @@
     <dimen name="width_login_button">120dp</dimen>
 
     <dimen name="width_neworder_cardview_large">160dp</dimen>
+
 </resources>

@@ -35,4 +35,9 @@
         <item name="android:textColor">@color/colorAccent</item>
     </style>
 
+    <style name="TextStyleClickTabsItem" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:textSize">@dimen/size_text_medium</item>
+        <item name="android:textColor">#212121</item>
+    </style>
+
 </resources>

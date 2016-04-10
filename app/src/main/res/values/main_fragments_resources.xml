@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="title_new_order_fragment">新订单</string>
+    <color name="selected_new_order_tab">#388E3C</color>
+
+</resources>
