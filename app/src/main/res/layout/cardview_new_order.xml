@@ -40,6 +40,17 @@
                 android:textSize="@dimen/size_text_medium" />
 
             <TextView
+                android:id="@+id/textView4"
+                style="@style/TextStyleCardSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/textView3"
+                android:text="@string/text_describe_rmb"
+                android:textSize="@dimen/size_text_small" />
+
+            <TextView
                 android:id="@+id/textViewPrice"
                 style="@style/TextStyleCardSmall"
                 android:layout_width="wrap_content"
@@ -51,17 +62,6 @@
                 android:layout_below="@+id/textViewWagon"
                 android:layout_toStartOf="@id/textView4"
                 android:text="1000"
-                android:textSize="@dimen/size_text_small" />
-
-            <TextView
-                android:id="@+id/textView4"
-                style="@style/TextStyleCardSmall"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_below="@+id/textView3"
-                android:text="@string/text_describe_rmb"
                 android:textSize="@dimen/size_text_small" />
 
             <TextView

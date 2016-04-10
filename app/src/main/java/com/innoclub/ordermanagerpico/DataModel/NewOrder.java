@@ -1,5 +1,7 @@
 package com.innoclub.ordermanagerpico.DataModel;
 
+import java.io.Serializable;
+
 /**
  * Created by presisco on 2016/4/6.
  */
