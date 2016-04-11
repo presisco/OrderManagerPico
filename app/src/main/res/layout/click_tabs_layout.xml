@@ -9,8 +9,7 @@
         android:layout_height="match_parent"
         android:layout_above="@+id/click_tabs_scroll"></FrameLayout>
 
-
-    <HorizontalScrollView
+    <com.innoclub.ordermanagerpico.UIFramework.ClickTabsContainer
         android:id="@+id/click_tabs_scroll"
         android:layout_width="match_parent"
         android:layout_height="@dimen/click_tabs_layout_tabs_height"
@@ -18,6 +17,18 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:background="@color/click_tabs_layout_tabs_default_background_color"
-        android:fillViewport="false"></HorizontalScrollView>
+        android:fillViewport="false">
+
+    </com.innoclub.ordermanagerpico.UIFramework.ClickTabsContainer>
+
+    <!--    <HorizontalScrollView
+            android:id="@+id/click_tabs_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/click_tabs_layout_tabs_height"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:background="@color/click_tabs_layout_tabs_default_background_color"
+            android:fillViewport="false"></HorizontalScrollView>-->
 
 </RelativeLayout>

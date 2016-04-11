@@ -4,4 +4,7 @@
     <string name="title_new_order_fragment">新订单</string>
     <color name="selected_new_order_tab">#388E3C</color>
 
+    <string name="title_new_shipping_fragment">发货</string>
+    <color name="selected_new_shipping_tab">#26A69A</color>
+
 </resources>

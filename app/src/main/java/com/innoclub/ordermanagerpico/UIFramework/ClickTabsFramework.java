@@ -9,6 +9,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.widget.LinearLayoutCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,8 +30,8 @@ import java.util.List;
  */
 public class ClickTabsFramework extends Fragment {
     public static final String TAG = ClickTabsFramework.class.getSimpleName();
-    private String mWorkingMode = "";
-    private LinearLayout mClickTabsContainer;
+    private ClickTabsContainer mScroll;
+
     private FragmentManager mFragmentManager;
     private TabDraw mCustomTabDraw;
     private List<Fragment> mContentItems = new ArrayList<>();
@@ -91,19 +92,11 @@ public class ClickTabsFramework extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        mClickTabsContainer = new LinearLayout(getContext());
-        mClickTabsContainer.setBackgroundColor(Color.RED);
-        HorizontalScrollView scrollView = (HorizontalScrollView) view.findViewById(R.id.click_tabs_scroll);
-        Log.d(TAG, "tabs scroll width:" + scrollView.getWidth());
-        if (isDistributeEvenly) {
-            scrollView.addView(mClickTabsContainer, scrollView.getWidth(), ViewGroup.LayoutParams.MATCH_PARENT);
-        } else {
-            scrollView.addView(mClickTabsContainer, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT);
-        }
+        mScroll = (ClickTabsContainer) view.findViewById(R.id.click_tabs_scroll);
 
         TabClickListener tabClickListener = new TabClickListener();
         for (int i = 0; i < mContentItems.size(); ++i) {
-            View tabView = LayoutInflater.from(getContext()).inflate(R.layout.click_tabs_item, mClickTabsContainer, false);
+            View tabView = LayoutInflater.from(getContext()).inflate(mTabLayout, mScroll.getLayout(), false);
             tabView.setTag(i);
             tabView.setOnClickListener(tabClickListener);
             if (isDistributeEvenly) {
@@ -112,7 +105,7 @@ public class ClickTabsFramework extends Fragment {
                 lp.weight = 1;
             }
             mCustomTabDraw.initDraw(tabView, i);
-            mClickTabsContainer.addView(tabView);
+            mScroll.getLayout().addView(tabView);
         }
         goTab(0);
     }
@@ -120,6 +113,7 @@ public class ClickTabsFramework extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
+        //    Log.d(TAG,"scroll width:"+mScroll.getWidth());
     }
 
     @Override
@@ -128,7 +122,7 @@ public class ClickTabsFramework extends Fragment {
     }
 
     public void goTab(int pos) {
-        View now = mClickTabsContainer.findViewWithTag(pos);
+        View now = mScroll.getLayout().findViewWithTag(pos);
         mCustomTabDraw.onClickedDraw(lastTab, lastTabPos, now, pos);
         FragmentTransaction trans = mFragmentManager.beginTransaction();
         trans.replace(R.id.contentFrame, mContentItems.get(pos));
@@ -149,7 +143,7 @@ public class ClickTabsFramework extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     public interface TabDraw {
 
-        public void initDraw(View v, int pos);
+        void initDraw(View v, int pos);
 
         /**
          * call when tab@pos is clicked
@@ -159,17 +153,19 @@ public class ClickTabsFramework extends Fragment {
          * @param now     view of clicked tab
          * @param pos     pos of clicked tab
          */
-        public void onClickedDraw(View last, int lastpos, View now, int pos);
+        void onClickedDraw(View last, int lastpos, View now, int pos);
     }
 
     private class TabClickListener implements View.OnClickListener {
         @Override
         public void onClick(View v) {
             int pos = (int) v.getTag();
+            Log.d(TAG, "clicked:" + pos);
             if (lastTabPos == pos) {
                 return;
             }
             goTab(pos);
         }
     }
+
 }
